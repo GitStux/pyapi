@@ -57,7 +57,15 @@ def get_names():
    raise Exception('Error retrieving contents at {}'.format(url))
 
 def main():
-   print(get_names())
+   colCount = 0
+   for name in get_names():
+        if colCount == 0:
+            print("\t", end="")
+        print("{:<30}".format(name), end="")
+        colCount += 1
+        if colCount == 4:
+            print()
+            colCount = 0
 
 if __name__ == "__main__":
    main()
